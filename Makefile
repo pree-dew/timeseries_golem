@@ -10,7 +10,7 @@ install: build
 	rm -rf build/
 
 clean: 
-	pip3 uninstall ts_golem 
+	pip3 uninstall ts-golem 
 
 env: 
 	python3 -m venv ~/local_golem
