@@ -1,0 +1,54 @@
+[
+	{
+		"metric": "steps_with_5",
+		"series_count": 5,
+		"label_count": 3,
+		"signal_details": {
+			"signal_type": "step_signal",
+			"low-amplitude": 50,
+			"high-amplitude": 150,
+			"repeat_for": 180
+		}
+	},
+	{
+		"metric": "step_with_3",
+		"series_count": 1,
+		"signal_details": {
+			"signal_type": "step_signal",
+			"low-amplitude": 10,
+			"high-amplitude": 23,
+			"repeat_for": 180
+		}
+	},
+		{
+		"metric": "poly_dynamic",
+		"series_count": 2,
+		"signal_details": {
+			"signal_type": "polynomial_with_dynamic_range",
+			"metric_type": "gauge",
+			"polynomial": "2*x+1",
+			"min": 1,
+			"max": 3
+		}
+	},
+	{
+		"metric": "poly_static",
+		"signal_details": {
+			"signal_type": "polynomial_with_static_range",
+			"metric_type": "gauge",
+			"polynomial": "x+1",
+			"range": [2,3,4,5],
+			"repeat_for": 120
+		}
+	},
+
+	{
+		"metric": "min_max_test",
+		"series_count": 2,
+		"signal_details": {
+			"signal_type": "min_max_signal",
+			"low-amplitude": 0,
+			"high-amplitude": 70
+		}
+	}
+]

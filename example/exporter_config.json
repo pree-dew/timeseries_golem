@@ -1,0 +1,8 @@
+{
+	"exporter": "prometheus",
+	"metric_export_mode": "remote_write",
+	"pickup_duration": 10,
+	"remote_write": {
+		"endpoint": "http://localhost:9090/api/v1/write"
+	}
+}
