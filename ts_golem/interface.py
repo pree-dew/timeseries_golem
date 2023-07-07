@@ -11,8 +11,10 @@ from ts_golem.generate_timeseries import find_function
 
 @click.group("cli", invoke_without_command=True)
 @click.pass_context
-@click.option("-sg", "--sg-file", help="pass signal definitions via a json file")
-def cli(ctx, sg_file):
+def cli(ctx):
+    pass
+
+def validate_schema(ctx, sg_file):
     ctx.obj = dict()
     with open(sg_file, "r") as f:
         try:
@@ -33,21 +35,21 @@ def cli(ctx, sg_file):
 
             raise se
         return ctx
+    
 
-
-@cli.command(name="validate_schema", help="parses the definition of signals that have been passed")
+@cli.command(name="validate", help="parses the definition of signals that have been passed")
 @click.pass_context
 @click.option("-sg", "--sg-file", help="pass signal definitions via a json file")
-def validate_schema(ctx, sg_file):
-    ctx.invoke(cli, sg_file=sg_file)
+def validate_signal(ctx, sg_file):
+    validate_schema(ctx, sg_file)
 
 
-@cli.command(name="generate_signal", help="generate signals as per pattern you are looking for")
+@cli.command(name="generate", help="generate signals as per pattern you are looking for")
 @click.pass_context
-@click.option("-sg", "--sg-file", help="pass signal configuration, it can have n number of signals")
+@click.option("-sg", "--sg-file", help="pass signal definitions via a json file")
 @click.option("-cf", "--config-file", help="config for the generator")
 def generate_signal(ctx, sg_file, config_file):
-    ctx = ctx.invoke(cli, sg_file=sg_file)
+    validate_schema(ctx, sg_file)
     with open(config_file) as f:
         config = json.loads(f.read())
 
@@ -67,4 +69,11 @@ def generate_signal(ctx, sg_file, config_file):
 
     for p in processes:
         p.join()
+
+def main():
+    cli(prog_name="ts_golem")
+
+
+if __name__ == '__main__':
+    main()
 
