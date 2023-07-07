@@ -24,7 +24,6 @@ def get_meter(config):
 
         exporter_type = config["exporter"]
         exporter = ConsoleMetricExporter()
-        reader = PeriodicExportingMetricReader(exporter, config.get("pickup_duration", DEFAULT_PICKUP_DURATION)*1000)
 
         if exporter_type == "prometheus":
             mode = config.get("metric_export_mode", REMOTE_WRITE)
@@ -40,6 +39,9 @@ def get_meter(config):
                 exporter = PrometheusRemoteWriteMetricsExporter(
                     endpoint=config[mode]["endpoint"],
                 )
+                reader = PeriodicExportingMetricReader(exporter, config.get("pickup_duration", DEFAULT_PICKUP_DURATION)*1000)
+        else:
+            reader = PeriodicExportingMetricReader(exporter, config.get("pickup_duration", DEFAULT_PICKUP_DURATION)*1000)
 
 
         provider = MeterProvider(resource=resource, metric_readers=[reader])
