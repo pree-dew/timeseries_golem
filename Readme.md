@@ -11,11 +11,17 @@ Installation and setup:
 
 `make setup`
 
-To validate signal configuration:
 
-`ts_golem_validate -sg signal_details.json`
+**To validate signal configuration:**
+
+`ts_golem validate -sg signal_details.json`
 
 
-To generate timeseries:
+**To generate timeseries:**
 
-`ts_golem_generate -sg signal_details.json -cf exporter_config.json`
+`ts_golem generate -sg signal_details.json -cf exporter_config.json`
+
+
+**To generate timeseries with hot reload for signal_details json:**
+
+`ts_golem generate -sg signal_details.json -cf exporter_config.json --reload`
