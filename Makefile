@@ -18,3 +18,10 @@ env:
 	pip3 install wheel
 
 setup: env install
+
+build-linux:
+	export CPPFLAGS="-I/usr/local/opt/zlib/include:$CPPFLAGS"
+	apt-get install libsnappy-dev
+	pip3 install python-snappy
+	pip3 install wheel
+	python3 setup.py bdist_wheel --universal
