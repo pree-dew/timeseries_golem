@@ -6,3 +6,4 @@ prometheus_client==0.17.0
 schema==0.7.5
 setuptools==67.6.1
 sympy==1.12
+watchdog==3.0.0

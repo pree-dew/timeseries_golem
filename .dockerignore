@@ -1,0 +1,5 @@
+venv
+ts_golem.egg-info
+.gitignore
+Readme.md
+.git
