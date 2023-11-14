@@ -1,11 +1,13 @@
 # Timeseries Golem
 
-Timeseries Golem is a Python library that is designed to emit the signal as per the given instruction, just like a golem.
+Timeseries Golem is a Python library designed to emit metric signals as per the given instruction, just like a golem.
 
 It is useful when:
-1. Specific signal patterns are required to test timeseries use cases like alerting, anomaly etc.
-2. Specific types of distribution are required to test its behaviour.
+1. Specific signal patterns are required to test time-series use cases like alerting, anomaly, etc.
+2. Specific types of distribution are required to test its behavior.
 3. Opentelemetry output needs to be tested against any backend at scale.
+
+It emits metrics to a remote write location such as [Levitate](https://last9.io/levitate-tsdb) using [Prometheus Remote Write](https://last9.io/blog/what-is-prometheus-remote-write/).
 
 
 ## Prerequisites
@@ -50,11 +52,11 @@ $ docker run ts_golem <commands_as_per_below_use_cases>
 ```shell
 $ docker run ts_golem ts_golem validate -sg signal_details.json
 ```
-**To generate timeseries:**
+**To generate time series:**
 ```shell
 $ docker run ts_golem ts_golem generate -sg signal_details.json -cf exporter_config.json
 ```
-**To generate timeseries with hot reload for signal_details json:**
+**To generate time series with hot reload for signal_details json:**
 ```shell
 $ docker run ts_golem ts_golem generate -sg signal_details.json -cf exporter_config.json --reload
 ```
