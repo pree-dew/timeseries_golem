@@ -1,3 +1,5 @@
+<a href="https://last9.io"><img src="https://last9.github.io/assets/last9-github-badge.svg" align="right" /></a>
+
 # Timeseries Golem
 
 Timeseries Golem is a Python library designed to emit metric signals as per the given instruction, just like a golem.
@@ -22,7 +24,7 @@ Install the Snappy C Library with the following commands
 
 **openSUSE** `$ sudo zypper in snappy-devel`
 
-**MacOS Intel** 
+**MacOS Intel**
 ```shell
 $ brew install snappy
 $ CPPFLAGS="-I/usr/local/include -L/usr/local/lib" pip install python-snappy
@@ -70,4 +72,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
